@@ -2,9 +2,17 @@
 <ul>
   <% @recipes.each do |recipe| %>
     <li>
-      <%= recipe.name %>
+      <%= recipe.name %> - Prep time <%= recipe.prep_time %> <%= recipe.difficulty %>
     </li>
   <% end %>
 </ul>
 
 <a href="/new">Add a recipe</a>
+<br>
+
+<form action="/scrape_results" method="get">
+  <input type="text" name="query">
+  <input type="submit" value="Search LetsCookFrench">
+</form>
+<!-- <a href="/scrape">Add a recipe from Let's Cook French</a>
+ -->

@@ -1,0 +1,19 @@
+<h2>Add a recipe from Let's Cook French</h2>
+
+<h2>Recipes:</h2>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li>
+      <%= recipe.name %> - Prep time <%= recipe.prep_time %> <%= recipe.difficulty %>
+
+      <form action="/recipes" method="post">
+          <input type="hidden" name="name" value="<%= recipe.name %>">
+          <input type="hidden" name="description" value="<%= recipe.description %>">
+          <input type="hidden" name="prep_time" value="<%= recipe.prep_time %>">
+          <input type="hidden" name="difficulty" value="<%= recipe.difficulty %>">
+        <input type="submit" value="Add this recipe">
+      </form>
+      <br>
+    </li>
+  <% end %>
+</ul>

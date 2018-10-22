@@ -4,6 +4,7 @@ require "pry-byebug"
 require "better_errors"
 require_relative "recipe"
 require_relative "cookbook"
+require_relative "scrape_lets_cook_french_service"
 configure :development do
   use BetterErrors::Middleware
   BetterErrors.application_root = File.expand_path('..', __FILE__)
@@ -27,4 +28,9 @@ post '/recipes' do
   recipe = Recipe.new(params[:name], params[:description], params[:prep_time])
   cookbook.add_recipe(recipe)
   redirect to '/'
+end
+
+get '/scrape_results' do
+  @recipes = ScrapeLetsCookFrenchService.new(params[:query]).call
+  erb :scrape
 end

@@ -1,4 +1,6 @@
 require_relative 'recipe'
+require 'nokogiri'
+require 'open-uri'
 
 class ScrapeLetsCookFrenchService
   attr_reader :web_recipes
