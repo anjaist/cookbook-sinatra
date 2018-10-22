@@ -3,6 +3,12 @@
   <% @recipes.each do |recipe| %>
     <li>
       <%= recipe.name %> - Prep time <%= recipe.prep_time %> <%= recipe.difficulty %>
+
+      <form action="/recipes" method="post">
+          <input type="hidden" name="name" value="<%= recipe.name %>">
+        <input type="submit" value="Delete this recipe">
+      </form>
+      <br>
     </li>
   <% end %>
 </ul>
@@ -14,5 +20,3 @@
   <input type="text" name="query">
   <input type="submit" value="Search LetsCookFrench">
 </form>
-<!-- <a href="/scrape">Add a recipe from Let's Cook French</a>
- -->

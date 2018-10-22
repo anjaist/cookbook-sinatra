@@ -34,3 +34,9 @@ get '/scrape_results' do
   @recipes = ScrapeLetsCookFrenchService.new(params[:query]).call
   erb :scrape
 end
+
+#code below not correct, not working
+# delete '/recipes' do
+#   cookbook.remove_recipe(recipe)
+#   redirect to '/'
+# end
